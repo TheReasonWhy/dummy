@@ -1,0 +1,10 @@
+#!/usr/bin/make -f
+%:
+	dh $@ --with cmake
+
+check_dependencies:
+	@echo "Проверка и установка необходимых зависимостей..."
+	@dpkg -s debhelper cmake || sudo apt-get install -y debhelper cmake
+
+# Добавьте вызов проверки зависимостей перед сборкой
+build: check_dependencies

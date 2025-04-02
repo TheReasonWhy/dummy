@@ -1,0 +1,14 @@
+Source: dummy
+Section: utils
+Priority: optional
+Maintainer: Ваше Имя <ваш.email@example.com>
+Build-Depends: debhelper (= 13), cmake, g++ 
+Standards-Version: 4.5.0
+Homepage: http://example.com
+
+Package: dummy
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Простой пример приложения на C++
+ Это простое приложение на C++, которое демонстрирует использование CMake для сборки.
+
