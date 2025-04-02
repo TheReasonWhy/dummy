@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Dummy Application
+Comment=Простой пример приложения на C++
+Exec=/usr/bin/dummy
+Icon=/usr/share/icons/hicolor/256x256/apps/clown.png
+Terminal=false
+Categories=Utility;
