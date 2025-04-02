@@ -1,10 +1,19 @@
 #!/usr/bin/make -f
+
 %:
 	dh $@ --with cmake
+
+# Добавьте вызов проверки зависимостей перед сборкой
+build: check_dependencies
+
+install: build
+	dh $@
+	mkdir -p $(CURDIR)/debian/dummy/usr/share/applications
+	mkdir -p $(CURDIR)/debian/dummy/usr/share/icons/hicolor/256x256/apps
+	install -Dm644 dummy.desktop $(CURDIR)/debian/dummy/usr/share/applications/
+	install -Dm644 clown.png $(CURDIR)/debian/dummy/usr/share/icons/hicolor/256x256/apps/
 
 check_dependencies:
 	@echo "Проверка и установка необходимых зависимостей..."
 	@dpkg -s debhelper cmake || sudo apt-get install -y debhelper cmake
 
-# Добавьте вызов проверки зависимостей перед сборкой
-build: check_dependencies
